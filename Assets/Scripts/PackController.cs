@@ -16,6 +16,7 @@ public class PackController : Agent
     public override void OnEpisodeBegin()
     {
         transform.localPosition = new Vector3(0, 0.5f, -5);
+        transform.localRotation = Quaternion.Euler(0, 0, 0);
         this.agent_rigidbody = GetComponent<Rigidbody>();
         this.RequestDecision();
     }
@@ -39,7 +40,7 @@ public class PackController : Agent
 
     private void FixedUpdate()
     {
-        float distance_scaled = Vector3.Distance(TargetTransform.localPosition, transform.localPosition) / 100;
+        float distance_scaled = Vector3.Distance(TargetTransform.localPosition, transform.localPosition) / 10;
         //Debug.Log(distance_scaled);
         AddReward(-distance_scaled);
     }
