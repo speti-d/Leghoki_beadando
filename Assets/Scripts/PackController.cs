@@ -20,6 +20,7 @@ public class PackController : Agent
         transform.localRotation = Quaternion.Euler(0, 0, 0);
         this.agent_rigidbody = GetComponent<Rigidbody>();
         this.agent_rigidbody.velocity = new Vector3(0, 0, 0);
+        this.agent_rigidbody.angularVelocity = new Vector3(0, 0, 0);
         this.RequestDecision();
     }
 
