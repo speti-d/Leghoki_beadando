@@ -1,26 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.MLAgents;
+using Unity.MLAgents.Sensors;
+using Unity.MLAgents.Actuators;
+using System;
 
-public class PackController : MonoBehaviour
-{
-    public float speed = 10;
 
-// Start is called before the first frame update
-void Start()
+public class PackController : Agent
 {
+
+    Rigidbody agent_rigidbody;
+    
+    public override void OnEpisodeBegin()
+    {
+        transform.localPosition = new Vector3(0, 0.5f, -5);
+        this.agent_rigidbody = GetComponent<Rigidbody>();
+        this.RequestDecision();
+    }
+
+    public override void OnActionReceived(ActionBuffers actions)
+    {
+        Debug.Log(actions.ContinuousActions[0] * 90);
+        Debug.Log((Math.Abs(actions.ContinuousActions[1]) * 20 + 5));
+        transform.Rotate(Vector3.up, actions.ContinuousActions[0] * 90);
+        this.agent_rigidbody.AddForce(transform.forward * (Math.Abs(actions.ContinuousActions[1]) * 10 + 10));
+    }
 }
 
-// Update is called once per frame
-void Update()
-{
-    if (Input.GetKey("w"))
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
-
-    if (Input.GetKey("d"))
-        transform.Rotate(0.0f, +0.5f, 0.0f);
-
-    if (Input.GetKey("a"))
-        transform.Rotate(0.0f, -0.5f, 0.0f);
-}
-}
