@@ -39,7 +39,7 @@ public class PackController : Agent
 
     private void FixedUpdate()
     {
-        float distance_scaled = Vector3.Distance(TargetTransform.localPosition, transform.localPosition) / 10;
+        float distance_scaled = Vector3.Distance(TargetTransform.localPosition, transform.localPosition) / 100;
         //Debug.Log(distance_scaled);
         AddReward(-distance_scaled);
     }
