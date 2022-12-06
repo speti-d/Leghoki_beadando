@@ -29,7 +29,7 @@ public class PackController : Agent
         //Debug.Log(actions.ContinuousActions[0] * 90);
         //Debug.Log((Math.Abs(actions.ContinuousActions[1]) * 20 + 5));
         transform.Rotate(Vector3.up, actions.ContinuousActions[0] * 90);
-        this.agent_rigidbody.AddForce(transform.forward * (Math.Abs(actions.ContinuousActions[1]) * 10 + 10));
+        this.agent_rigidbody.AddForce(transform.forward * 20);
     }
 
     private void OnCollisionEnter(Collision collision)
