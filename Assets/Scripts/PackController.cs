@@ -15,7 +15,6 @@ public class PackController : Agent
 
     public override void OnEpisodeBegin()
     {
-        this.
         transform.localPosition = new Vector3(0, 0.5f, -5);
         transform.localRotation = Quaternion.Euler(0, 0, 0);
         this.agent_rigidbody = GetComponent<Rigidbody>();
@@ -36,16 +35,22 @@ public class PackController : Agent
     {
         if (collision.collider.tag == "Goal")
         {
-            AddReward(1);
+            AddReward(2);
             EndEpisode();
         }
     }
 
-    private void FixedUpdate()
+
+    public void EndEpisode()
     {
-        float distance_scaled = Vector3.Distance(TargetTransform.localPosition, transform.localPosition) / 1000;
-        //Debug.Log(distance_scaled);
-        //AddReward(-distance_scaled);
+        float distance_scaled = Vector3.Distance(TargetTransform.localPosition, transform.localPosition) / 20;
+        AddReward(-distance_scaled);
+        base.EndEpisode();
     }
+        
+        //Debug.Log(distance_scaled);
+        
+
+
 }
 
