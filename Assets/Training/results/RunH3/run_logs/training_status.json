@@ -1,0 +1,38 @@
+{
+    "PackController": {
+        "checkpoints": [
+            {
+                "steps": 499999,
+                "file_path": "results\\RunH3\\PackController\\PackController-499999.onnx",
+                "reward": 0.48102859949242505,
+                "creation_time": 1670441513.4219377,
+                "auxillary_file_paths": [
+                    "results\\RunH3\\PackController\\PackController-499999.pt"
+                ]
+            },
+            {
+                "steps": 635477,
+                "file_path": "results\\RunH3\\PackController\\PackController-635477.onnx",
+                "reward": 0.43858570633953764,
+                "creation_time": 1670451211.652014,
+                "auxillary_file_paths": [
+                    "results\\RunH3\\PackController\\PackController-635477.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 635477,
+            "file_path": "results\\RunH3\\PackController.onnx",
+            "reward": 0.43858570633953764,
+            "creation_time": 1670451211.652014,
+            "auxillary_file_paths": [
+                "results\\RunH3\\PackController\\PackController-635477.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.28.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}
